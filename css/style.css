@@ -8,6 +8,7 @@
   src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff") format("woff"), url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf") format("truetype");
 }
 
+/* for js */
 * {
   font-family: "NanumBarunGothic";
 }
@@ -74,6 +75,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
   margin-top: 35px;
+  margin-bottom: 120px;
 }
 
 .main .main_header {
@@ -95,6 +97,7 @@ body {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   text-align: center;
+  background-color: white;
 }
 
 .main .main_menu-ul li {
@@ -102,6 +105,7 @@ body {
 }
 
 .main .main_contents {
+  background-color: white;
   border: 1px solid olive;
 }
 
@@ -136,13 +140,112 @@ body {
 }
 
 .main .card_container .card_grid .card {
-  border: 1px solid black;
+  border: 3px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .card_container .card_grid .card h3 {
+  color: #2db400;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.main .card_container .card_grid .card > p {
+  color: #666;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.main .card_container:last-child {
+  padding-bottom: 80px;
 }
 
 .footer {
-  width: 980px;
   border: 1px solid salmon;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer .footer_section {
+  max-width: 980px;
+  width: 100vw;
+  height: 90px;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid royalblue;
+}
+
+.footer .footer_section .policy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer .footer_section .policy p {
+  font-size: 12px;
+}
+
+.footer .footer_section .policy > p {
+  margin: 0px 5px 0px 10px;
+}
+
+.footer .footer_section .policy a:first-child {
+  font-weight: 700;
+}
+
+.footer .footer_section .relrated_site {
+  position: relative;
+}
+
+.footer .footer_section .relrated_site .select_btn {
+  width: 224px;
+  height: 34px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+}
+
+.footer .footer_section .relrated_site .select_contents {
+  width: 224px;
+  height: 105px;
+  padding: 20px;
+  border: 1px solid crimson;
+  position: absolute;
+  top: -104px;
+  display: none;
+  background-color: #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+.footer .footer_section .relrated_site .select_contents.on {
+  display: block;
 }
 
 /* 애니메이션 */

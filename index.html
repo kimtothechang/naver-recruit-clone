@@ -140,25 +140,38 @@
       </section>
     </main>
     <footer class="footer">
-      <article class="policy">
-        <a href="">
-          <p>개인정보 처리방침</p>
-        </a>
-        <a href="">
-          <p>NAVER Corp</p>
-        </a>
-      </article>
-      <article class="relrated_site">
-        <button class="select_btn">
-          <p>관련사이트</p>
-          <i></i>
-        </button>
-        <ul class="select_contents">
-          <li>NAVER Corporation</li>
-          <li>NAVER Developers</li>
-          <li>Naver Design</li>
-        </ul>
-      </article>
+      <section class="footer_section">
+        <article class="policy">
+          <a href="">
+            <p>개인정보 처리방침</p>
+          </a>
+          <p>©</p>
+          <a href="">
+            <p>NAVER Corp</p>
+          </a>
+        </article>
+        <article class="relrated_site">
+          <button class="select_btn">
+            <p>관련사이트</p>
+            <i class="bi bi-x"></i>
+          </button>
+          <ul class="select_contents">
+            <li>NAVER Corporation</li>
+            <li>NAVER Developers</li>
+            <li>Naver Design</li>
+          </ul>
+        </article>
+      </section>
     </footer>
+    <script>
+      const btn = document.querySelector(".select_btn");
+      const ul = document.querySelector(".select_contents");
+
+      btn.addEventListener("click", (e) => {
+        e.defaultPrevented;
+        console.log("toggled");
+        ul.classList.toggle("on");
+      });
+    </script>
   </body>
 </html>
