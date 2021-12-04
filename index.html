@@ -40,10 +40,13 @@
     <main class="main">
       <section class="main_header">
         <!-- 슬라이더 -->
+        <input type="button" value="&lt;" class="left_button button" />
+        <input type="button" value="&gt;" class="right_button button" />
         <article class="slider">
-          <img src="./imgs/svg1.svg" alt="" />
-          <img src="./imgs/svg2.svg" alt="" />
-          <img src="./imgs/svg1.svg" alt="" />
+          <img src="./imgs/svg2.svg" alt="" class="slider_img" />
+          <img src="./imgs/svg1.svg" alt="" class="slider_img" />
+          <img src="./imgs/svg2.svg" alt="" class="slider_img" />
+          <img src="./imgs/svg1.svg" alt="" class="slider_img" />
         </article>
         <article class="main_menu">
           <ul class="main_menu-ul">
@@ -164,12 +167,92 @@
       </section>
     </footer>
     <script>
+      // main-slider
+      // HTML태그 받아오기
+      const leftBtn = document.querySelector(".left_button");
+      const rightBtn = document.querySelector(".right_button");
+      const slider = document.querySelector(".slider");
+
+      // 이미지 넓이 값
+      const moveSize = 980;
+
+      // 현재 위치 값, 현재 위치 인덱스
+      let currentTranslateX = -980;
+      let currentPosition = 0;
+
+      // 캐러셀 오른쪽 이동 함수
+      function nextSlide() {
+        if (currentPosition < 1) {
+          currentPosition++;
+          slider.style.transform = `translateX(${(currentTranslateX -=
+            moveSize)}px)`;
+          slider.style.transition = `300ms`;
+        } else {
+          currentPosition = 0;
+          slider.style.transform = `translateX(${
+            currentTranslateX - moveSize
+          }px)`;
+          slider.style.transition = `300ms`;
+          setTimeout(function () {
+            slider.style.transform = `translateX(${-moveSize}px)`;
+            slider.style.transition = `0ms`;
+            currentTranslateX = -980;
+          }, 300);
+        }
+      }
+
+      // 캐러셀 왼쪽 이동 함수
+      function prevSlide() {
+        if (currentPosition > 0) {
+          currentPosition--;
+          slider.style.transform = `translateX(${(currentTranslateX +=
+            moveSize)}px)`;
+          slider.style.transition = `300ms`;
+        } else {
+          currentPosition = 1;
+          slider.style.transform = `translateX(${
+            currentTranslateX + moveSize
+          }px)`;
+          slider.style.transition = `300ms`;
+          setTimeout(function () {
+            slider.style.transform = `translateX(-${moveSize * 2}px)`;
+            slider.style.transition = `0ms`;
+            currentTranslateX = -1960;
+          }, 300);
+        }
+      }
+
+      // 오른쪽 버튼 리스너
+      rightBtn.addEventListener("click", (e) => {
+        rightBtn.disabled = !rightBtn.disabled;
+        setTimeout(function () {
+          rightBtn.disabled = !rightBtn.disabled;
+        }, 500);
+        nextSlide();
+      });
+
+      // 왼쪽 버튼 리스너
+      leftBtn.addEventListener("click", (e) => {
+        leftBtn.disabled = !leftBtn.disabled;
+        setTimeout(function () {
+          leftBtn.disabled = !leftBtn.disabled;
+        }, 500);
+        prevSlide();
+      });
+
+      // 5초마다 케러셀 오른쪽 이동 반복
+      setInterval(function () {
+        nextSlide();
+      }, 5000);
+
+      ///////////////////
+      // footer-button //
+      //////////////////
       const btn = document.querySelector(".select_btn");
       const ul = document.querySelector(".select_contents");
 
       btn.addEventListener("click", (e) => {
         e.defaultPrevented;
-        console.log("toggled");
         ul.classList.toggle("on");
       });
     </script>

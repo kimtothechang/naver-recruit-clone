@@ -81,14 +81,34 @@ body {
 .main .main_header {
   margin-bottom: 22px;
   border: 1px solid crimson;
+  position: relative;
+}
+
+.main .button {
+  position: absolute;
+  z-index: 20;
+  background-color: inherit;
+  font-size: 50px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main .left_button.button {
+  top: 32%;
+}
+
+.main .right_button.button {
+  top: 32%;
+  left: 96%;
 }
 
 .main .slider {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-animation: slide 10s linear infinite;
-          animation: slide 10s linear infinite;
+  -webkit-transform: translateX(-980px);
+          transform: translateX(-980px);
 }
 
 .main .main_menu-ul {

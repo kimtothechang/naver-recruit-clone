@@ -72,11 +72,31 @@ body {
   .main_header {
     margin-bottom: 22px;
     border: 1px solid crimson;
+    position: relative;
+  }
+
+  .button {
+    position: absolute;
+    z-index: 20;
+    background-color: inherit;
+    font-size: 50px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .left_button.button {
+    top: 32%;
+  }
+
+  .right_button.button {
+    top: 32%;
+    left: 96%;
   }
 
   .slider {
     display: flex;
-    animation: slide 10s linear infinite;
+    transform: translateX(-980px);
   }
 
   .main_menu-ul {
@@ -229,4 +249,6 @@ body {
 // 반응형 만들기 => 모바일용으로
 // hover 추가
 // 슬라이드 넘기기 추가
+// 디테일 살리기
+// JS에서 특정 숫자를 받았을 때 옆에 초록 숫자 띄우기 null일 경우 띄우지않기
 // SASS로 정리 => 변수 및 mixin추가
