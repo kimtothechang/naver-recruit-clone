@@ -63,7 +63,6 @@ body {
 .main {
   max-width: 980px;
   width: 100vw;
-  border: 1px solid aquamarine;
   margin: 0 auto;
   overflow: hidden;
   margin-top: 35px;
@@ -71,7 +70,6 @@ body {
 
   .main_header {
     margin-bottom: 22px;
-    border: 1px solid crimson;
     position: relative;
   }
 
@@ -104,15 +102,351 @@ body {
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
     background-color: white;
+
+    .alarm {
+      display: inline-block;
+      color: white;
+      font-size: 14px;
+      background-color: #2db400;
+      padding: 4px;
+      border-radius: 50%;
+    }
   }
+  @import "./reset.css";
+
+  @font-face {
+    font-family: "NanumBarunGothic";
+    font-style: normal;
+    font-weight: 400;
+    src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot");
+    src: url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix")
+        format("embedded-opentype"),
+      url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff")
+        format("woff"),
+      url("//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf")
+        format("truetype");
+  }
+
+  /* for js */
+
+  * {
+    font-family: "NanumBarunGothic";
+  }
+
+  body {
+    background-color: #eff0f2;
+  }
+
+  .header {
+    width: 100vw;
+    background-color: #fff;
+
+    .header_section {
+      width: 980px;
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+
+      .logo a span {
+        font-size: 22px;
+        color: #00cc49;
+      }
+      .logo a span:first-child {
+        font-weight: 700;
+      }
+
+      .header_menu-ul {
+        display: flex;
+        li {
+          display: flex;
+          margin-left: 25px;
+          i {
+            opacity: 0.3;
+            margin-right: 10px;
+          }
+        }
+        li:last-child {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  .main {
+    max-width: 980px;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 35px;
+    margin-bottom: 120px;
+
+    .main_header {
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .button {
+      position: absolute;
+      z-index: 20;
+      background-color: inherit;
+      font-size: 50px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .left_button.button {
+      top: 32%;
+    }
+
+    .right_button.button {
+      top: 32%;
+      left: 96%;
+    }
+
+    .slider {
+      display: flex;
+      transform: translateX(-980px);
+    }
+
+    .main_menu-ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      background-color: white;
+
+      .alarm {
+        display: inline-block;
+        color: white;
+        font-size: 14px;
+        background-color: #2db400;
+        padding: 4px;
+        border-radius: 50%;
+      }
+    }
+
+    .main_menu-ul li {
+      padding: 60px 0;
+      border: 1px solid #e6e6e6;
+
+      &:first-child {
+        border-right: none;
+      }
+      &:nth-child(2) {
+        border-right: none;
+      }
+      &:nth-child(3) {
+        border-right: none;
+      }
+    }
+
+    .main_contents {
+      background-color: white;
+
+      .culture_report {
+        position: relative;
+
+        p {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+        }
+      }
+    }
+
+    .card_container {
+      padding: 50px 50px;
+
+      h2 {
+        margin-bottom: 15px;
+      }
+
+      .card_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 282px);
+        grid-auto-rows: 160px;
+        gap: 16px;
+
+        .card {
+          border: 3px solid #e6e6e6;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            border: 3px solid #c6c6c6;
+          }
+
+          h3 {
+            color: #2db400;
+            margin-bottom: 25px;
+            font-size: 20px;
+          }
+
+          & > p {
+            color: #666;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+
+    .card_container:last-child {
+      padding-bottom: 80px;
+    }
+  }
+
+  .footer {
+    box-sizing: border-box;
+
+    .footer_section {
+      max-width: 980px;
+      width: 100vw;
+      height: 90px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .policy {
+        display: flex;
+
+        p {
+          font-size: 12px;
+        }
+
+        & > p {
+          margin: 0px 5px 0px 10px;
+        }
+
+        a:first-child {
+          font-weight: 700;
+        }
+      }
+
+      .relrated_site {
+        position: relative;
+        .select_btn {
+          width: 224px;
+          height: 34px;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px;
+          border: 1px solid #e6e6e6;
+        }
+
+        .select_btn.on {
+          background-color: white;
+
+          & > p:last-child {
+            transform: rotate(45deg);
+          }
+        }
+
+        .select_contents {
+          width: 224px;
+          height: 105px;
+          padding: 20px;
+          border: 1px solid #e6e6e6;
+          position: absolute;
+          top: -104px;
+          display: none;
+          background-color: #eee;
+          box-sizing: border-box;
+          line-height: 22px;
+          font-size: 14px;
+        }
+
+        .select_contents.on {
+          display: block;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  /* 모바일 화면 미디어 쿼리 */
+  @media screen and (max-width: 980px) {
+    .header {
+      .header_section {
+        width: 682px;
+      }
+    }
+    .main {
+      width: 682px;
+      .main_menu-ul {
+        grid-template-columns: repeat(2, 1fr);
+        border: 1px solid #e6e6e6;
+
+        li {
+          &:nth-child(2) {
+            border-right: 1px solid #e6e6e6;
+          }
+          &:nth-child(3) {
+            border-top: none;
+          }
+          &:last-child {
+            border-top: none;
+          }
+        }
+      }
+    }
+
+    .footer {
+      .footer_section {
+        width: 682px;
+      }
+    }
+  }
+
+  /* 애니메이션 */
+  @keyframes slide {
+    0% {
+    }
+    8% {
+      transform: translateX(-980px);
+    }
+    50% {
+      transform: translateX(-980px);
+    }
+    58% {
+      transform: translateX(-1960px);
+    }
+    100% {
+      transform: translateX(-1960px);
+    }
+  }
+
+  // 반응형 만들기 => 모바일용으로 =======> 해결
+  // hover 추가  =======> 해결
+  // 슬라이드 넘기기 추가 =======> 해결
+  // 디테일 살리기
+  // JS에서 특정 숫자를 받았을 때 옆에 초록 숫자 띄우기 null일 경우 띄우지않기
+  // SASS로 정리 => 변수 및 mixin추가
 
   .main_menu-ul li {
     padding: 60px 0;
+    border: 1px solid #e6e6e6;
+
+    &:first-child {
+      border-right: none;
+    }
+    &:nth-child(2) {
+      border-right: none;
+    }
+    &:nth-child(3) {
+      border-right: none;
+    }
   }
 
   .main_contents {
     background-color: white;
-    border: 1px solid olive;
 
     .culture_report {
       position: relative;
@@ -147,6 +481,10 @@ body {
         justify-content: center;
         align-items: center;
 
+        &:hover {
+          border: 3px solid #c6c6c6;
+        }
+
         h3 {
           color: #2db400;
           margin-bottom: 25px;
@@ -168,7 +506,6 @@ body {
 }
 
 .footer {
-  border: 1px solid salmon;
   box-sizing: border-box;
 
   .footer_section {
@@ -179,7 +516,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid royalblue;
 
     .policy {
       display: flex;
@@ -205,13 +541,22 @@ body {
         display: flex;
         justify-content: space-between;
         padding: 10px;
+        border: 1px solid #e6e6e6;
+      }
+
+      .select_btn.on {
+        background-color: white;
+
+        & > p:last-child {
+          transform: rotate(45deg);
+        }
       }
 
       .select_contents {
         width: 224px;
         height: 105px;
         padding: 20px;
-        border: 1px solid crimson;
+        border: 1px solid #e6e6e6;
         position: absolute;
         top: -104px;
         display: none;
@@ -223,7 +568,52 @@ body {
 
       .select_contents.on {
         display: block;
+        background-color: white;
       }
+    }
+  }
+}
+
+/* 모바일 화면 미디어 쿼리 */
+@media screen and (max-width: 980px) {
+  .header {
+    .header_section {
+      width: 682px;
+    }
+  }
+  .main {
+    width: 682px;
+
+    .left_button.button {
+      top: 27%;
+    }
+
+    .right_button.button {
+      top: 27%;
+      left: 95%;
+    }
+
+    .main_menu-ul {
+      grid-template-columns: repeat(2, 1fr);
+      border: 1px solid #e6e6e6;
+
+      li {
+        &:nth-child(2) {
+          border-right: 1px solid #e6e6e6;
+        }
+        &:nth-child(3) {
+          border-top: none;
+        }
+        &:last-child {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  .footer {
+    .footer_section {
+      width: 682px;
     }
   }
 }
@@ -246,9 +636,9 @@ body {
   }
 }
 
-// 반응형 만들기 => 모바일용으로
-// hover 추가
-// 슬라이드 넘기기 추가
+// 반응형 만들기 => 모바일용으로 =======> 해결
+// hover 추가  =======> 해결
+// 슬라이드 넘기기 추가 =======> 해결
 // 디테일 살리기
 // JS에서 특정 숫자를 받았을 때 옆에 초록 숫자 띄우기 null일 경우 띄우지않기
 // SASS로 정리 => 변수 및 mixin추가

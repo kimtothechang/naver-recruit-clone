@@ -53,25 +53,25 @@
             <li>
               <a href="">
                 <em>개발</em>
-                <strong>65</strong>
+                <strong class="alarm">65</strong>
               </a>
             </li>
             <li>
               <a href="">
                 <em>설계(디자인)</em>
-                <strong></strong>
+                <!-- <strong class="alarm">1</strong> -->
               </a>
             </li>
             <li>
               <a href="">
                 <em>콘텐츠&서비스</em>
-                <strong>42</strong>
+                <strong class="alarm">42</strong>
               </a>
             </li>
             <li>
               <a href="">
                 <em>경영지원</em>
-                <strong>11</strong>
+                <strong class="alarm">11</strong>
               </a>
             </li>
           </ul>
@@ -156,7 +156,7 @@
         <article class="relrated_site">
           <button class="select_btn">
             <p>관련사이트</p>
-            <i class="bi bi-x"></i>
+            <p>+</p>
           </button>
           <ul class="select_contents">
             <li>NAVER Corporation</li>
@@ -180,19 +180,28 @@
       let currentTranslateX = -980;
       let currentPosition = 0;
 
-      // 캐러셀 오른쪽 이동 함수
+      // 캐러셀 오른쪽 이동
+      function slideR() {
+        slider.style.transform = `translateX(${(currentTranslateX -=
+          moveSize)}px)`;
+        slider.style.transition = `300ms`;
+      }
+
+      // 캐러셀 왼쪽 이동
+      function slideL() {
+        slider.style.transform = `translateX(${(currentTranslateX +=
+          moveSize)}px)`;
+        slider.style.transition = `300ms`;
+      }
+
+      // 캐러셀 오른쪽 무한루프
       function nextSlide() {
         if (currentPosition < 1) {
           currentPosition++;
-          slider.style.transform = `translateX(${(currentTranslateX -=
-            moveSize)}px)`;
-          slider.style.transition = `300ms`;
+          slideR();
         } else {
           currentPosition = 0;
-          slider.style.transform = `translateX(${
-            currentTranslateX - moveSize
-          }px)`;
-          slider.style.transition = `300ms`;
+          slideR();
           setTimeout(function () {
             slider.style.transform = `translateX(${-moveSize}px)`;
             slider.style.transition = `0ms`;
@@ -201,19 +210,14 @@
         }
       }
 
-      // 캐러셀 왼쪽 이동 함수
+      // 캐러셀 왼쪽 무한루프
       function prevSlide() {
         if (currentPosition > 0) {
           currentPosition--;
-          slider.style.transform = `translateX(${(currentTranslateX +=
-            moveSize)}px)`;
-          slider.style.transition = `300ms`;
+          slideL();
         } else {
           currentPosition = 1;
-          slider.style.transform = `translateX(${
-            currentTranslateX + moveSize
-          }px)`;
-          slider.style.transition = `300ms`;
+          slideL();
           setTimeout(function () {
             slider.style.transform = `translateX(-${moveSize * 2}px)`;
             slider.style.transition = `0ms`;
@@ -254,7 +258,17 @@
       btn.addEventListener("click", (e) => {
         e.defaultPrevented;
         ul.classList.toggle("on");
+        btn.classList.toggle("on");
       });
     </script>
   </body>
 </html>
+
+<!-- 1. 특정 시간마다 오른쪽으로 슬라이드되는 기능
+2. 방향 버튼을 누를경우 다음 혹은
+이전 슬라이드로 이동 되는 기능
+3. 움직일 때는 버튼을 눌러도 2번 기능이 작동하면 안됨
+-------------------------------------------------------
+
+4. 방향 버튼이
+포커싱될 경우 슬라이드 움직임 X, 포커싱 해제 시 다시 움직임 -->
